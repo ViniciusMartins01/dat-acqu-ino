@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nome+Da+Fonte&display=swap" rel="stylesheet">
+  <!-- Estilo local -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- inicio header -->
+  <header class="cabecalho">
+    <div><a href="index.html"><img class="img-logo" src="./img/logo-vaccintech.png" alt="logo-vaccintech"></a></div>
+    <!-- TELA NAVEGAÇÃO -->
+    <ul class="navegacao">
+      <li><a href="#visao-geral">Visão Geral</a></li>
+      <li><a href="#funcionalidades">Funcionalidades</a></li>
+      <li><a href="addVacina.html">Adicionar</a></li>
+      <li><a href="calculadora.html">Calculadora</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+    </ul> <!-- FIM - TELA NAVEGAÇÃO -->
+    <a href="cadastro.html">
+      <div class="perfilUsuario">
+                    <div id="textoPerfil"> Olá Claudio Frizzarini, <br /> <strong> Seja bem-vindo!</strong> </div>
+         <img id="fotoUsuario" class="img-usuario"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO14C3vuPxliUNKaNLf7tUwyKwS-fQKcmYXMQxVshpgaa7t_De"
+          alt="Foto Perfil" />
+      </div>
+    </a>
+  </header>
+  <!-- fim header -->
+
+  <div class="ptDentro">
+    <div id="caixa2">
+      <h2 id="add">Adicionar carregamento</h2>
+
+      <div class="perguntas">
+        <div class="pergunta">
+          <h3>Nome da vacina:</h3>
+          <div class="iptslc">
+            <input id="ipt_nome" type="text" placeholder="Ex: CoronaVac" oninput="nomeVac()" />
+            <h3>Placa</h3>
+            <input id="ipt_placa" type="text" placeholder="ABC1D23" oninput="placaVac()" />
+          </div>
+        </div>
+        <div class="numero">
+          <h3>Quantidade</h3>
+          <div class="iptslc">
+            <input id="ipt_unidade" type="text" placeholder="Unidades" oninput="uniVac()" />
+            <h3>Temperatura</h3>
+            <div id="minMax">
+              <input id="ipt_temp_min" type="text" placeholder="Min " oninput="minVac()" />
+              <input id="ipt_temp_max" type="text" placeholder="Max " oninput="maxVac()" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <div class="pt_baixo">
+        <h3>Rota</h3>
+        <div id="temps">
+          <input type="text" id="ipt_sai" placeholder="Saindo de:" oninput="saidaVac()" />
+          <input type="text" id="ipt_cheg" placeholder="Chegando em:" oninput="entradaVac()" />
+        </div>
+        <button class="btn-add-vacina" onclick="chamaCalcular()">Adicionar</button>
+        <div class="resultados d">
+          <div class="tipos">
+            <span class="msg_forma">Nome: </span>
+            <span id="demoD1" class="resul">-</span> <br />
+          </div>
+          <div class="tipos">
+            <span class="msg_forma">Quantidade: </span>
+            <span id="demoD2" class="resul">-</span> <br />
+          </div>
+          <div class="tipos">
+            <span class="msg_forma">Placa: </span>
+            <span id="demoD3" class="resul">-</span> <br />
+          </div>
+          <div class="tipos">
+            <span class="msg_forma">Rota: </span>
+            <span id="demoD4" class="resul"><span id="dIda">-</span> → <span id="dChe">-</span></span>
+            <br />
+          </div>
+          <div class="tipos">
+            <span class="msg_forma">Temperatura: </span>
+            <span id="demoD5" class="resul"><span id="dMin">-</span> até <span id="dMax">-</span></span>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  function nomeVac() {
+    let nome = ipt_nome.value;
+    demoD1.innerHTML = nome;
+  }
+  function placaVac() {
+    let placa = ipt_placa.value;
+    demoD3.innerHTML = placa;
+  }
+  function uniVac() {
+    let unidades = ipt_unidade.value;
+    demoD2.innerHTML = unidades;
+  }
+  function minVac() {
+    let min = ipt_temp_min.value;
+    dMin.innerHTML = `${min}°C  `;
+  }
+  function maxVac() {
+    let max = ipt_temp_max.value;
+    dMax.innerHTML = `${max}°C  `;
+  }
+  function saidaVac() {
+    let saida = ipt_sai.value;
+    dIda.innerHTML = saida;
+  }
+  function entradaVac() {
+    let chegada = ipt_cheg.value;
+    dChe.innerHTML = chegada;
+  }
+</script>

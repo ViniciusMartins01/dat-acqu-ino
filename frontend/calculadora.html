@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Financeira</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-calculadora.css">
+</head>
+
+<body> 
+     <!-- inicio header -->
+        <header class="cabecalho">
+            <div><a href="index.html"><img class="img-logo" src="./img/logo-vaccintech.png" alt="logo-vaccintech"></a></div>
+            <!-- TELA NAVEGAÇÃO -->
+            <ul class="navegacao">
+                <li><a href="#visao-geral">Visão Geral</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="addVacina.html">Adicionar</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul> <!-- FIM - TELA NAVEGAÇÃO -->
+            <a href="cadastro.html">
+                <div class="perfilUsuario">
+                    <div id="textoPerfil"> Olá Claudio Frizzarini, <br /> <strong> Seja bem-vindo!</strong> </div>
+                    <img id="fotoUsuario" class="img-usuario" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO14C3vuPxliUNKaNLf7tUwyKwS-fQKcmYXMQxVshpgaa7t_De" alt="Foto Perfil" />
+                </div>
+            </a>
+        </header>
+        <!-- fim header -->
+  <!-- container principal -->
+  <div class="container">
+    <!-- conteudo principal -->
+    <div class="conteudo">
+      <h1 class="titulo">Calculadora Financeira</h1>
+      <!-- conteudo formulario -->
+      <div class="formulario">
+        <label>Insira o nome da vacina:</label>
+        <input type="text" id="input_nome" />
+        <br>
+        <label>Insira a quantidade de unidades por lote:</label>
+        <input type="text" id="input_por_lote" />
+        <br>
+        <label>Insira a quantidade de lotes:</label>
+        <input type="text" id="input_qtd_lotes" />
+        <br>
+        <label>Insira o preço médio de produção <b>por</b> vacina:</label>
+        <input type="text" id="input_preco" />
+        <br>  
+        <label>Insira a quantidade de viagens realizadas no mês:</label>
+        <input type="text" id="input_qtd_viagem" />
+        <br>
+        <label>Insira veículo que vai realizar o transporte:</label>
+        <input type="text" id="input_veiculo" />
+
+      </div> <!-- fim formulario -->
+      <button type="button" onclick="calculo()" class="btn">Calcular</button>
+      <div id="mensagem"></div>
+    </div> <!-- fim conteudo -->
+
+  </div> <!-- fim container -->
+</body>
+
+</html>
+<script>
+  function calculo() {
+    let nomeVacina = input_nome.value;
+    let unidadesPorLote = Number(input_por_lote.value);
+    let quantidadeLotes = Number(input_qtd_lotes.value);
+    let precoPorVacina = Number(input_preco.value);
+    let viagensMes = Number(input_qtd_viagem.value);
+    let veiculo = input_veiculo.value;
+
+    if (
+      nomeVacina == "" ||
+      unidadesPorLote <= 0 ||
+      quantidadeLotes <= 0 ||
+      precoPorVacina <= 0 ||
+      viagensMes <= 0 ||
+      veiculo == ""
+    ) {
+      mensagem.innerHTML =
+        "<span style='color:red'>Preencha todos os campos corretamente.</span>";
+      return;
+    }
+
+    let vacinasPorViagem = unidadesPorLote * quantidadeLotes;
+    let vacinasPorMes = vacinasPorViagem * viagensMes;
+
+    let vacinasPerdidas = vacinasPorMes * 0.2;
+    let prejuizoMensal = vacinasPerdidas * precoPorVacina;
+
+    let economiaMensal = vacinasPerdidas * precoPorVacina;
+
+    let prejuizoAnual = 0;
+    let vacinasSalvasAno = 0;
+
+    for (let i = 0; i < 12; i++) {
+      prejuizoAnual += prejuizoMensal;
+    }
+
+    for (let i = 0; i < 12; i++) {
+      vacinasSalvasAno += vacinasPerdidas;
+    }
+
+    mensagem.innerHTML = `
+<span>
+<b style="color:red;">Sem o sensor VaccinMonitorate:</b><br><br>
+
+Do total de <b style="color:red;">${vacinasPorMes.toLocaleString()}</b> vacinas transportadas por mês
+no veículo <b style="color:red;">${veiculo}</b>, a estimativa de perda é de 
+<b style="color:red;">${vacinasPerdidas.toLocaleString()}</b> vacinas (20%)
+da vacina <b style="color:red;">${nomeVacina}</b>.<br>
+
+Isso pode gerar um prejuízo mensal de
+<b style="color:red;">${prejuizoMensal.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}</b>
+e um prejuízo anual de
+<b style="color:red;">${prejuizoAnual.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}</b>.
+</span>
+
+<br><br>
+
+<span >
+<b style="color:#10cc00;">Com o sensor VaccinMonitorate:</b><br><br>
+
+O alerta rápido evita a perda de aproximadamente
+<b style="color:#10cc00;">${vacinasPerdidas.toLocaleString()}</b> vacinas por mês.
+
+Economia mensal de
+<b style="color:#10cc00;">${economiaMensal.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    })}</b>.<br>
+
+No ano, cerca de
+<b style="color:#10cc00;">${vacinasSalvasAno.toLocaleString()}</b> vacinas podem ser preservadas.
+</span>
+`;
+  }
+</script>

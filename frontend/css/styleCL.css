@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ecf0f1;
+}
+
+.conteudo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    height: 70%;
+    width: 80%;
+    border-radius: 15px;
+   
+}
+
+.primeira_coluna{
+    background-color: #5b6ac2;
+    width: 40%;
+    height: 100%;
+    align-content: center;
+    padding: 25px;
+    align-items: center;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.segunda_coluna{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paragrafo{
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 25px;
+    text-align: center;
+    color: #7f8c8d  
+}
+
+.paragrafo_coluna1{
+    color: #fff;
+}
+
+.titulo{
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn{
+    color: #fff;
+    border-radius: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    align-self: center;
+    border: none;
+}
+
+.btn_coluna1{
+    background-color: #5b6ac2;
+    border: 1px solid #fff;
+    margin-left: 40%;
+    transition: background-color 0.6s, color 0.2s; 
+    background-color: transparent; 
+}
+
+.btn_coluna1:hover a {
+    color: #5b6ac2;
+}
+
+.btn_coluna1:hover  {
+    background-color: #fff;
+    color: #5b6ac2;
+}
+
+a.btn {
+    display: inline-block;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.btn_coluna2{
+    background-color: #5b6ac2;
+    color: #fff;
+    border: 1px solid #5b6ac2; 
+    transition: background-color 0.6s, color 0.2s, border-color 0.6s;
+    cursor: pointer;
+}
+
+
+.btn_coluna2:hover a {
+    color: #5b6ac2;
+}
+
+.btn_coluna2:hover  {
+    background-color: transparent; 
+    background-color: #fff;  
+}
+
+.coluna_2{
+    color: #5b6ac2;
+}
+
+.formulario form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario input{
+    display: flex;
+    height: 45px;
+    border: none;
+    margin: 15px;
+    width: 350px;
+    padding: 20px;
+    background-color: #ecf0f1;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn_login{
+    margin-left: 38%;
+}
+
+.ancora{
+    margin-top: 15px;
+    text-decoration: none;
+    text-align: center;
+    color:#5b6ac2;
+}
+
+.ancora:hover{
+    text-decoration: underline;
+    opacity: 0.8;
+
+}

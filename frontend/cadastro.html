@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleCL.css">
+    <title>Cadastro VaccinTech</title>
+</head>
+<body>
+    <main class="container">
+        <section class="conteudo">
+            <section class="primeira_coluna">
+                <h1 class="titulo">Bem-vindo à VaccinTech!</h1>
+                <p class="paragrafo paragrafo_coluna1">Para manter contato conosco</p>
+                <p class="paragrafo paragrafo_coluna1">Por favor, faça login com suas informações pessoais</p>
+                <button class="btn btn_coluna1" ><a href="login.html">ENTRAR</a></button>
+            </section>
+            <section class="segunda_coluna">
+                <h1 class="titulo coluna_2">Criar Conta</h1>
+                <p class="paragrafo">Utilize seus dados pessoais para registrar-se</p>
+                <form class="formulario">
+                <input type="text" id="input_nome" placeholder="Nome:" required>
+                <input type="email" id="input_email" oninput="validarEmail()" onfocus="mostrarEmail()" placeholder="Email:" required>
+                <input type="text" id="input_senha" oninput="validarSenha()" onfocus="validarSenha()" placeholder="Senha:" required>
+                <input type="password" id="input_confirmar" oninput="confirmarSenha()" placeholder="Confirme a sua senha" placeholder="Confirme a sua senha" required>
+                </form>
+                <div class="paragrafo" id="div_mensagem"></div>
+                <button onclick="cadastrar()" class="btn btn_coluna2"><a href="#">CRIAR CONTA</a></button>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
+<script>
+    let validacaoEmail = false;
+    let validacaoSenha = false;
+    let validacaoConfirmacao = false;
+    function validarEmail() {
+        let email = input_email.value;
+        // let termina_com = email;
+        let mensagem = "";
+        if (email.endsWith(".com") || email.endsWith(".com.br")) {
+            validacaoEmail = true;
+
+            mensagem += `<span style='color:green'>✔ E-mail com extensões de domínio</span><br>`;
+        } else {
+            mensagem += `<span style='color:gray'>❌ E-mail deve conter TLD e ccTLD</span><br>`;
+        }
+
+        let temArroba = email.includes("@");
+
+        if (temArroba) {
+            mensagem += `<span style='color:green'>✔ Possui @</span><br>`;
+        } else {
+            mensagem += `<span style='color:gray'>❌ Não possui @</span><br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+    function mostrarEmail() {
+        div_mensagem.innerHTML = "";
+    }
+
+    function validarSenha() {
+        mostrarSenha();
+        let mensagem = "";
+        let senha = input_senha.value;
+
+
+        if (senha.length >= 8) {
+            validacaoSenha = true;
+            mensagem += `<span style='color:green'>✔ 8 Caracteres </span><br>`;
+        } else {
+            mensagem += `<span style="color: gray;">❌ Mínimo 8 caracteres</span><br>`;
+        }
+
+        if (senha != senha.toLowerCase()) {
+            mensagem += `<span style='color:green'>✔ Possui letra maiúscula</span><br>`;
+        } else {
+            mensagem += `<span style="color: gray;">❌ Não possui letra maiúscula</span><br>`;
+        }
+
+        let temEspecial =
+            senha.includes("!") ||
+            senha.includes("_") ||
+            senha.includes("@") ||
+            senha.includes("#") ||
+            senha.includes("$") ||
+            senha.includes("%") ||
+            senha.includes("&") ||
+            senha.includes("*");
+        if (temEspecial) {
+            mensagem += `<span style='color:green'>✔ Possui caracter especial</span><br>`;
+        } else {
+            mensagem += `<span style="color: gray;">❌ Não possui caracter especial</span><br>`;
+        }
+
+        let temNumero =
+            senha.includes("0") ||
+            senha.includes("1") ||
+            senha.includes("2") ||
+            senha.includes("3") ||
+            senha.includes("4") ||
+            senha.includes("5") ||
+            senha.includes("6") ||
+            senha.includes("7") ||
+            senha.includes("8") ||
+            senha.includes("9");
+
+        if (temNumero) {
+            mensagem += `<span style='color:green'>✔ Possui número</span><br>`;
+        } else {
+            mensagem += `<span style="color: gray;">❌ Não possui número</span><br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+
+        function mostrarSenha() {
+            div_mensagem.innerHTML = "";
+        }
+    }
+
+    function confirmarSenha() {
+        let senha = input_senha.value;
+        let confirmar = input_confirmar.value;
+        let senhaconfirmada = confirmar;
+
+        if (senha === senhaconfirmada) {
+            validacaoConfirmacao = true;
+        } else {
+            validacaoConfirmacao = false;
+        
+        }
+
+    }
+
+    function cadastrar() {
+        if (validacaoConfirmacao && validacaoEmail && validacaoSenha) {
+            window.location.href = "login.html";
+        } else {
+             div_mensagem.innerHTML = `<span style="color: gray;">❌ Confirmação de senha incorreta!</span>`
+        }
+        
+    }
+</script>

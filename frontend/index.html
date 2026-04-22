@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VaccinTech</title>
+     <link href="https://fonts.googleapis.com/css2?family=Nome+Da+Fonte&display=swap" rel="stylesheet">    
+    <!-- Estilo local -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+        <!-- inicio header -->
+        <header class="cabecalho">
+             <div><a href="index.html"><img class="img-logo" src="./img/logo-vaccintech.png" alt="logo-vaccintech"></a></div>
+            <!-- TELA NAVEGAÇÃO -->
+            <ul class="navegacao">
+                <li><a href="#visao-geral">Visão Geral</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="addVacina.html">Adicionar</a></li>
+                <li><a href="calculadora.html">Calculadora</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul> <!-- FIM - TELA NAVEGAÇÃO -->
+            <a href="cadastro.html">
+                <div class="perfilUsuario">
+                    <div id="textoPerfil"> Olá acesse sua conta<br /> <strong> ou faça seu cadastro</strong> </div>
+                    <img id="fotoUsuario" class="img-usuario" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO14C3vuPxliUNKaNLf7tUwyKwS-fQKcmYXMQxVshpgaa7t_De" alt="Foto Perfil" />
+                </div>
+            </a>
+        </header>
+        <!-- fim header -->
+
+        <section id="comeco">
+            <div class="comecoTexto">
+                <h1>
+                    <!-- Adicionado alt para acessibilidade -->
+                    <img src="img/gifEntradaRP.gif" alt="VaccinTech IoT" />
+                </h1>
+                <p>
+                    O VaccinTech é uma solução baseada em IoT que monitora a temperatura de vacinas em tempo real durante o transporte, reduzindo perdas, garantindo sua eficácia e contribuindo para a segurança da saúde pública.
+                </p>
+            </div>
+            <img id="fotoMedica" height="600px" width="500px" src="img/medicoteste.avif" alt="Profissional de saúde" />
+        </section>
+
+        <div class="visaoGeral" id="visao-geral">
+            <section class="gradeCoisas">
+                <h2 class="tituloVisao">Visão Geral</h2>
+                <div class="linhaItem">
+                    <div class="itemGrade ig1">
+                        <img id="desHospital" src="https://cdn-icons-png.flaticon.com/512/7757/7757838.png" alt="Riscos" />
+                        <div class="texto">
+                            <h3>Riscos à Saúde Pública</h3>
+                            <p>Vacinas expostas a temperaturas fora da faixa de 2°C a 8°C perdem sua eficácia imunológica. Quando uma vacina ineficaz é administrada a um paciente, ela gera uma falsa sensação de segurança e compromete o combate a doenças.</p>
+                        </div>
+                    </div>
+                    <div class="itemGrade ig2">
+                        <img id="desPrejuizo" src="https://thumbs.dreamstime.com/b/ilustra%C3%A7%C3%A3o-do-vetor-da-perda-dinheiro-liso-dos-desenhos-animados-com-para-baixo-seta-armazena-o-gr%C3%A1fico-conceito-crise-114225921.jpg" alt="Prejuízo" />
+                        <div class="texto">
+                            <h3>Prejuízo Financeiro</h3>
+                            <p>Lotes inteiros de vacinas podem custar milhões. Uma falha de refrigeração não detectada a tempo pode levar ao descarte total da carga, gerando prejuízos irreversíveis tanto para a transportadora quanto para o Estado.</p>
+                        </div>
+                    </div>
+                    <div class="itemGrade ig3">
+                        <img id="desGlobo" src="https://img.freepik.com/vetores-gratis/importacao-e-exportacao-de-desenho-a-mao-com-caminhao_23-2149160485.jpg?semt=ais_hybrid&w=740&q=80" alt="Logística" />
+                        <div class="texto">
+                            <h3>Pontos Cegos na Logística</h3>
+                            <p>A ausência de monitoramento contínuo durante o transporte cria falhas no controle térmico, dificultando a identificação de problemas em tempo real e aumentando o risco de perdas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="gradeCoisas" id="funcionalidades">
+            <h2 class="tituloFunc">Funcionalidades</h2>
+            <div class="linhaItem">
+                <div class="itemGrade p21">
+                    <img id="desSensor" src="https://www.trastejant.com/wp-content/uploads/2016/10/lm35.png" alt="Sensor LM35" />
+                    <div class="texto">
+                        <h3>Monitoramento em tempo real</h3>
+                        <p>Sensores LM35 de alta precisão realizam a leitura contínua da temperatura nos compartimentos refrigerados, garantindo dados exatos a todo momento.</p>
+                    </div>
+                </div>
+                <div class="itemGrade p22">
+                    <img id="desBd" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR8hj7keaFqezBE5w_sn5oD1B63SD3RNMMndhbDEefm7-y2k48A" alt="Banco de Dados" />
+                    <div class="texto">
+                        <h3>Coleta e armazenamento de dados</h3>
+                        <p>O sistema embarcado envia automaticamente as informações térmicas para um banco de dados seguro, eliminando processos manuais e aumentando a confiabilidade.</p>
+                    </div>
+                </div>
+                <div class="itemGrade p23">
+                    <img id="desAlerta" src="img/alert.png" alt="Alertas" />
+                    <div class="texto">
+                        <h3>Alertas inteligentes</h3>
+                        <p>O dashboard identifica variações fora da faixa ideal (2°C a 8°C) e emite alertas visuais instantâneos, permitindo ação rápida para evitar perdas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> <!-- Fechamento da div container -->
+</body>
+</html>

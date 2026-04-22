@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleCL.css">
+    <title>LOGIN VaccinTech</title>
+</head>
+<body>
+    <main class="container">
+        <section class="conteudo">
+            <section class="primeira_coluna">
+                <h1 class="titulo">Olá , amigo!</h1>
+                <p class="paragrafo paragrafo_coluna1">Digite seus dados pessoais</p>
+                <p class="paragrafo paragrafo_coluna1">e começe a jornada com a gente!</p>
+                <button class="btn btn_coluna1 btn_login"><a href="cadastro.html">CRIAR CONTA</a></button>
+            </section>
+            <section class="segunda_coluna">
+                <h1 class="titulo coluna_2">Faça login na VaccinTech</h1>
+                <p class="paragrafo">Use o seu email para registrar-se</p>
+                <form class="formulario">
+                <input type="email" id="input_email" placeholder="Email:" required>
+                <input type="password" id="input_senha" placeholder="Senha:" required>
+                </form>
+                <div id="mensagem"></div>
+                <a href="#" class="ancora">Esqueceu sua senha?</a>
+                <button onclick="entrar()" class="btn btn_coluna2"><a href="#">ENTRAR</a></button>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
+<script>
+        function entrar(){  
+        let email = input_email.value;
+        let senha = input_senha.value;
+        if (email == 'claudio.frizzarini@vaccintech.com' && senha=='Frizza@123' ){
+            mensagem.innerHTML = ``
+            window.location.href = "dashboard.html"; // C:\Users\anasa\Desktop\AulaP.I-API-Cadastro\Vacin-Tech\frontend\dashboard.html
+        }  else {
+            mensagem.innerHTML = `<span style="color: red;">E-mail ou senha incorretos</span>`
+        } 
+    }
+</script>
